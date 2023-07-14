@@ -1,5 +1,12 @@
 # Capstone-Project-Bangkit
+<<<<<<< HEAD
 # Machine Learning repository of Bangkit Capstone Project "Calendivity"<br>
+=======
+ML repository untuk capstone project bangkit Product-based "Calendivity"<br>
+Link Colabs (Jonathan): 
+1. https://colab.research.google.com/drive/1sFS_ere-aG_7ZjWyioLwXV0bQiOORfMB - Model Finalization with HuggingFace pre-trained model
+2. https://colab.research.google.com/drive/1rkZeDkZmjOKMgxImiWPOLkVIjYD9A4g7?usp=sharing - EDA & Model Experiments (Trial & Error)
+>>>>>>> 66103f50fbd8ff5fdb556729a31cf0f7b418ee45
 
 # Dataset
 ## American Time Use Survey (ATUS) Dataset
