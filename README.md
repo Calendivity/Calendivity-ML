@@ -1,16 +1,9 @@
 # Capstone-Project-Bangkit
-<<<<<<< HEAD
-# Machine Learning repository of Bangkit Capstone Project "Calendivity"<br>
-=======
-ML repository untuk capstone project bangkit Product-based "Calendivity"<br>
-Link Colabs (Jonathan): 
-1. https://colab.research.google.com/drive/1sFS_ere-aG_7ZjWyioLwXV0bQiOORfMB - Model Finalization with HuggingFace pre-trained model
-2. https://colab.research.google.com/drive/1rkZeDkZmjOKMgxImiWPOLkVIjYD9A4g7?usp=sharing - EDA & Model Experiments (Trial & Error)
->>>>>>> 66103f50fbd8ff5fdb556729a31cf0f7b418ee45
+# Machine Learning repository of Bangkit Capstone Project "Calendivity"
 
 # Dataset
 ## American Time Use Survey (ATUS) Dataset
-<h3> Source : https://www.bls.gov </h3><br>
+<h3> Source : https://www.bls.gov </h3>
 This dataset measures the amount of time people spend doing various <b>activities</b>, such as paid work, childcare, volunteering, and socializing. We analyzed the datasets within the years from 2017 until 2020. There are several dataset files for each year, we only use three of the most important datasets :
 1. Respondent File Dataset : The respondents' biodata and social circumstances
 2. Activity File Dataset : list of activities done by the respondents in one day
