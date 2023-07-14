@@ -21,9 +21,14 @@ Here is the illustration of how the machine learning system works<br>
 ![Kiku](media/rec_pipeline.png)
 
 
-## Main Model (Activity Difficulty, Exp Gain, and Activity Recommendation)
+## Time Prediction Model
+
+TensorFlow Model with a TensorFlow Probability's DistributionLambda Layer as the last layer. DistributionLambda layer outputs a distribution instead of a number. We set the Lambda Layer to output a Gaussian Normal Distribution which means it is computed by calculating the Mean and the Standard Deviation by the subsequent layer. 
+
 ![Kiku](media/model.png)
-TensorFlow Model with a TensorFlow Probability's DistributionLambda Layer as the last layer. DistributionLambda layer outputs a distribution instead of a number. We set the Lambda Layer to output a Gaussian Normal Distribution which means it is computed by calculating the Mean and the Standard Deviation by the subsequent layer. This model actually predict the time duration of activity instead of directly estimating the activity difficulty. It calculates the difference of the user input and the generated output to be able to compute the Difficulty and Exp Gain as well as the Activity Recommendation. 
+
+This model predict the time duration of activity instead of directly estimating the activity difficulty. It calculates the difference of the user input and the generated output to be able to compute the Difficulty and Exp Gain as well as the Activity Recommendation. For the details, please check the previous pipeline visualization
+
 
 ### Customized Loss Function
 ![Kiku](media/custom_loss.png)
