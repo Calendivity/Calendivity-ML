@@ -1,0 +1,6 @@
+tensorflow
+flask
+pandas
+numpy
+tensorflow_probability
+torch
