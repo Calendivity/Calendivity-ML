@@ -21,13 +21,13 @@ Here is the illustration of how the machine learning system works<br>
 ![Kiku](media/rec_pipeline.png)
 
 
-## Time Prediction Model
+## 1. Time Prediction Model
 
-TensorFlow Model with a TensorFlow Probability's DistributionLambda Layer as the last layer. DistributionLambda layer outputs a distribution instead of a number. We set the Lambda Layer to output a Gaussian Normal Distribution which means it is computed by calculating the Mean and the Standard Deviation by the subsequent layer. 
+This is our main machine learning model which is able to perform multitask learning. It consists of a special TensorFlow Probability's DistributionLambda Layer as the last layer. DistributionLambda utilize the power of Probabilistic Bayesian Statistics to outputs a distribution object instead of a real consistent number. We set the DistributionLambda to output a Gaussian Normal Distribution which means it calculates the Mean and the Standard Deviation as the building blocks of the output distribution.
 
 ![Kiku](media/model.png)
 
-This model predict the time duration of activity instead of directly estimating the activity difficulty. It calculates the difference of the user input and the generated output to be able to compute the Difficulty and Exp Gain as well as the Activity Recommendation. For the details, please check the previous pipeline visualization
+This model predict the time duration of activity instead of directly estimating the activity difficulty. It calculates the difference between the end time input and the generated output to be able to compute the Difficulty and Exp Gain, as well as the Activity Recommendation. For the details, please check the previous pipeline illustration.
 
 
 ### Customized Loss Function
@@ -36,12 +36,12 @@ We utilized the Statistical Distribution property of the output from Distributio
 
 
 
-## Text Embedding Model
+## 2. Text Embedding Model
 ![Kiku](media/emb_model.png)
 <br>
 PyTorch Transformers Embedding Model (Customized Pre-trained Model from HuggingFace). We added 431 layers at the end of the model which corresponds to each activity code. We finetuned the model with list of activities of each activity codes which is provided in the www.bls.gov website. We used Categorical Crossentopy loss funtion per epoch (instead of per batch) which made the loss converge faster.
 
-## Machine Translation (ENG - ID) Model [On Development]
+## 3. Machine Translation (ENG - ID) Model [On Development]
 PyTorch Transformers Machine Translation Model. This is a Pre-trained Model from HuggingFace. We are still configuring this model due to several bugs in the application deployment. In some cases, the model generates random texts instead of doing translation and it could takes more than 1 minutes for the model to produce the output because of this bug.
 
 
