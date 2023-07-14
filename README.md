@@ -4,7 +4,7 @@
 ## American Time Use Survey (ATUS) Dataset
 ![Kiku](media/atus.png)
 <h3> Source : https://www.bls.gov </h3>
-This dataset measures the amount of time people spend doing various <b>activities</b>, such as paid work, childcare, volunteering, and socializing. We analyzed the datasets within the years from 2017 until 2020. There are several dataset files for each year, we only use three of the most important datasets :<br>
+This dataset measures the amount of time people spend doing various <b>activities</b>, such as paid work, childcare, volunteering, and socializing. We analyzed the datasets within the years from 2017 until 2020. There are several dataset files for each year, we only use three of the most important datasets :<br><br>
 1. Respondent File Dataset : The respondents' biodata and social circumstances<br>
 2. Activity File Dataset : list of activities done by the respondents in one day<br>
 3. Summary File Dataset : Summary of each respondent corresponds to the activities done by them in one day.
@@ -27,7 +27,7 @@ This is our main machine learning model which is able to perform multitask learn
 
 ![Kiku](media/model.png)
 
-This model predict the time duration of activity instead of directly estimating the activity difficulty. It calculates the difference between the end time input and the generated output to be able to compute the Difficulty and Exp Gain, as well as the Activity Recommendation. For the details, please check the previous pipeline illustration.
+This model predict the time duration of activity instead of directly estimating the activity difficulty. It calculates the difference between the end time input and the generated output to be able to compute the Difficulty and Exp Gain, as well as the Activity Recommendation. For the details, please kindly check the previous pipeline illustration.
 
 
 ### Customized Loss Function
@@ -41,7 +41,7 @@ We utilized the Statistical Distribution property of the output from Distributio
 <br>
 PyTorch Transformers Embedding Model (Customized Pre-trained Model from HuggingFace). We added 431 layers at the end of the model which corresponds to each activity code. We finetuned the model with list of activities of each activity codes which is provided in the www.bls.gov website. We used Categorical Crossentopy loss funtion per epoch (instead of per batch) which made the loss converge faster.
 
-## 3. Machine Translation (ENG - ID) Model [On Development]
+## 3. Machine Translation EN - ID Model [On Development]
 PyTorch Transformers Machine Translation Model. This is a Pre-trained Model from HuggingFace. We are still configuring this model due to several bugs in the application deployment. In some cases, the model generates random texts instead of doing translation and it could takes more than 1 minutes for the model to produce the output because of this bug.
 
 
