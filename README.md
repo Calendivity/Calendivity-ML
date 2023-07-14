@@ -4,11 +4,12 @@
 ## American Time Use Survey (ATUS) Dataset
 ![Kiku](media/atus.png)
 <h3> Source : https://www.bls.gov </h3>
-This dataset measures the amount of time people spend doing various <b>activities</b>, such as paid work, childcare, volunteering, and socializing. We analyzed the datasets within the years from 2017 until 2020. There are several dataset files for each year, we only use three of the most important datasets :
-1. Respondent File Dataset : The respondents' biodata and social circumstances
-2. Activity File Dataset : list of activities done by the respondents in one day
+This dataset measures the amount of time people spend doing various <b>activities</b>, such as paid work, childcare, volunteering, and socializing. We analyzed the datasets within the years from 2017 until 2020. There are several dataset files for each year, we only use three of the most important datasets :<br>
+1. Respondent File Dataset : The respondents' biodata and social circumstances<br>
+2. Activity File Dataset : list of activities done by the respondents in one day<br>
 3. Summary File Dataset : Summary of each respondent corresponds to the activities done by them in one day.
-
+<br><br>
+The dataset contains more than 450 unique activity codes. After processing the data we realize there are similar activities overlapping each other (e.g Eating Lunch and Eating Breakfast). Thus, we decided to cut out some of the codes into 431 unique activity codes.
 
 
 
