@@ -12,15 +12,14 @@ This dataset measures the amount of time people spend doing various <b>activitie
 3. Summary File Dataset : Summary of each respondent corresponds to the activities done by them in one day.
 <br><br>
 <p align='justify'>
-The dataset contains more than 450 unique activity codes. After processing the data we realize there are similar activities overlapping each other (e.g Eating Lunch and Eating Breakfast). Thus, we decided to cut out some of the codes into 431 unique activity codes.
-</p>
+The dataset contains more than 450 unique activity codes. After processing the data we realize there are similar activities overlapping each other (e.g Eating Lunch and Eating Breakfast). Thus, we decided to cut out some of the codes into 431 unique activity codes.</p>
 
 
 
 # Machine Learning Models
 <p align='justify'>
 We created two separate model for serving purposes. The first model is responsible for producing the activity codes from it's input name. Meanwhile, The second model serves for both the Activity Difficulty Prediction and Activity Recommendation. We utilize Flask REST API which run in Google Cloud Platform to deploy the model in production.</p>
-<br><br>
+
 Here is the illustration of how the machine learning system works<br>
 ![Kiku](media/dur_pipeline.png)
 ![Kiku](media/rec_pipeline.png)
