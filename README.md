@@ -14,7 +14,7 @@ The dataset contains more than 450 unique activity codes. After processing the d
 
 
 # Machine Learning Models
-We created two separate model for serving purposes. The first model is responsible for producing the activity codes from it's input name. Meanwhile, The second model is serving for both the Activity Difficulty Prediction and Activity Recommendation. We utilize Flask REST API which run in Google Cloud Platform to serve the model in production.
+We created two separate model for serving purposes. The first model is responsible for producing the activity codes from it's input name. Meanwhile, The second model serves for both the Activity Difficulty Prediction and Activity Recommendation. We utilize Flask REST API which run in Google Cloud Platform to deploy the model in production.
 <br><br>
 Here is the illustration of how the machine learning system works<br>
 ![Kiku](media/dur_pipeline.png)
@@ -23,11 +23,11 @@ Here is the illustration of how the machine learning system works<br>
 
 ## 1. Time Prediction Model
 
-This is our main machine learning model which is able to perform multitask learning. It consists of a special TensorFlow Probability's DistributionLambda Layer as the last layer. DistributionLambda utilize the power of Probabilistic Bayesian Statistics to outputs a distribution object instead of a real consistent number. We set the DistributionLambda to output a Gaussian Normal Distribution which means it calculates the Mean and the Standard Deviation as the building blocks of the output distribution.
+This is our main machine learning model which is able to perform multitask learning. It contains a special layer of TensorFlow Probability's DistributionLambda as the last layer. DistributionLambda utilizes the power of Probabilistic Bayesian Statistics to build an output of distribution object instead of a constant value. We set the DistributionLambda to output a Gaussian Normal Distribution which means it calculates the Mean and the Standard Deviation as the building blocks of the distribution.
 
 ![Kiku](media/model.png)
 
-This model predict the time duration of activity instead of directly estimating the activity difficulty. It calculates the difference between the end time input and the generated output to be able to compute the Difficulty and Exp Gain, as well as the Activity Recommendation. For the details, please kindly check the previous pipeline illustration.
+This model predicts the time duration of activity instead of directly estimating the activity difficulty. It calculates the difference between the end time input and the generated output to be able to compute the Difficulty and Exp Gain, as well as the Activity Recommendation. For the details, please kindly check the previous pipeline illustration.
 
 
 ### Customized Loss Function
@@ -39,10 +39,10 @@ We utilized the Statistical Distribution property of the output from Distributio
 ## 2. Text Embedding Model
 ![Kiku](media/emb_model.png)
 <br>
-PyTorch Transformers Embedding Model (Customized Pre-trained Model from HuggingFace). We added 431 layers at the end of the model which corresponds to each activity code. We finetuned the model with list of activities of each activity codes which is provided in the www.bls.gov website. We used Categorical Crossentopy loss funtion per epoch (instead of per batch) which made the loss converge faster.
+PyTorch Word Embedding Transformers Model (Customized Pre-trained Model from HuggingFace). We added 431 layers at the end of the model which corresponds to each activity code. We finetuned the model with list of activities of each activity codes which is provided in the www.bls.gov website. We used Categorical Crossentopy loss funtion per epoch (instead of per batch) which made the loss converge faster.
 
 ## 3. Machine Translation EN - ID Model [On Development]
-PyTorch Transformers Machine Translation Model. This is a Pre-trained Model from HuggingFace. We are still configuring this model due to several bugs in the application deployment. In some cases, the model generates random texts instead of doing translation and it could takes more than 1 minutes for the model to produce the output because of this bug.
+PyTorch Machine Translation Transformers Model. This is a Pre-trained Model from HuggingFace. We are still configuring this model due to several bugs in the application deployment. In some cases, the model randomly generates irrelevant texts instead of doing translation and it could take more than one minute to produce those buggy the output.
 
 
 
@@ -50,7 +50,7 @@ PyTorch Transformers Machine Translation Model. This is a Pre-trained Model from
 
 # Colab / Notebook Experiments
 Link Colabs (contrib : Jonathan): 
-1. https://colab.research.google.com/drive/1sFS_ere-aG_7ZjWyioLwXV0bQiOORfMB - Model Finalization with HuggingFace pre-trained model
+1. https://colab.research.google.com/drive/1sFS_ere-aG_7ZjWyioLwXV0bQiOORfMB?usp=sharing - Model Finalization with HuggingFace pre-trained model
 2. https://colab.research.google.com/drive/1rkZeDkZmjOKMgxImiWPOLkVIjYD9A4g7?usp=sharing - EDA & Model Experiments (Trial & Error)
 
 Link Colabs (contrib : Segaf):  
